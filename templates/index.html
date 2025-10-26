@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Kütüphane Otomasyonu</title>
+</head>
+<body>
+    <h1>📚 Kütüphane Kitap Listesi</h1>
+    <a href="{{ url_for('kitap_ekle') }}">Yeni Kitap Ekle</a>
+    <ul>
+        {% for kitap in kitaplar %}
+        <li>{{ kitap.ad }} - {{ kitap.yazar }} ({{ kitap.yayin_yili }})</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

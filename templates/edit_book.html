@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitap Düzenle</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <h3>{{ book.title }} - Kitap Düzenle</h3>
+    <form action="{{ url_for('edit_book', book_id=book.id) }}" method="POST">
+        <div class="mb-3">
+            <label for="title" class="form-label">Kitap Başlığı</label>
+            <input type="text" class="form-control" id="title" name="title" value="{{ book.title }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="author" class="form-label">Yazar</label>
+            <input type="text" class="form-control" id="author" name="author" value="{{ book.author }}" required>
+        </div>
+        <button type="submit" class="btn btn-success">Güncelle</button>
+        <a href="{{ url_for('books') }}" class="btn btn-secondary">İptal</a>
+    </form>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

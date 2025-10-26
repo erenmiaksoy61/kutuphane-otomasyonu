@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Kitap Ekle</title>
+</head>
+<body>
+    <h1>Kitap Ekle</h1>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        {{ form.isim.label }}<br>
+        {{ form.isim(size=40) }}<br><br>
+
+        {{ form.yazar.label }}<br>
+        {{ form.yazar(size=40) }}<br><br>
+
+        {{ form.submit() }}
+    </form>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul>
+          {% for category, message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+</body>
+</html>
